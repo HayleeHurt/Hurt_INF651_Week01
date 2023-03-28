@@ -8,18 +8,29 @@ given in the comments.
 // 1) Create an object named webDev that cannot be reassigned and
 // contains the 3 key-value pairs:
 // frame: "HTML", style: "CSS", logic: "JavaScript"
-
+const webDev = {
+    frame: "HTML",
+    style: "CSS",
+    logic: "Javascript"
+};
 // 2) Create an object named pizza with a property named crust.
 // Set the crust value to "thin". Add a method named setCrust
 // to the object that accepts a parameter named crustType.
 // The method should change the crust value of the object to
 // the value of the parameter.
 // Hint: keyword to use is "this".
-
+const pizza = {
+    crust: "thin",
+    setcrust: function(crustType){
+        this.crust = crustType;
+    }
+}
 // 3) Create a function named doesItContain that accepts two
 // parameters: "key" and "obj". The function should return
 // boolean data to indicate if the key exists in the object.
-
+function doesItContain(key, obj){
+    return obj.hasOwnProperty(key);
+}
 // 4) Create a function named introduceTheActors that accepts
 // the array of objects named actors (see below) as a parameter.
 // Name the parameter "actorArray". The function should loop
@@ -40,7 +51,14 @@ const actors = [
   { name: "Jeff", movie: "The Big Lebowski" }
 ];
 ///////// Do not change the above array of objects /////////
-
+function introduceTheActors(actorArray){
+    const newArray = [];
+    for (let i = 0; i < actorArray.length; i++) {
+        const intro = `Hi, I'm ${actorArray[i].name} and I was in ${actorArray[i].movie}.`;
+        newArray.push(intro);
+    }
+    return newArray;
+}   
 // 5) Create an object named techCompanies that has the following
 // key-value pairs:
 // Microsoft: "Bill Gates", Amazon: "Jeff Bezos", Tesla: "Elon Musk",
@@ -48,13 +66,28 @@ const actors = [
 // Add a method to the techCompanies object named founderLookup
 // that accepts companyName as a parameter and returns
 // the name of the founder.
-
+const techCompanies = {
+    Microsoft: "Bill Gates",
+    Amazon: "Jeff Bezos",
+    Tesla: "Elon Musk",
+    Facebook: "Mark Zuckerberg",
+    Apple: "Steve Jobs"
+};
+techCompanies.founderLookup = function (companyName){
+    return this[companyName]
+};
 // 6) Utilizing the same techCompanies object from #5,
 // Create a function named storeFounders that accepts
 // an object and loops through the values. Store the
 // name of each founder in a new array that is returned
 // by the function when the loop is complete.
-
+function storeFounders(obj){
+    const newArray = [];
+    for (company in obj){
+        newArray.push(obj[company]);
+    }
+    return newArray;
+}
 // 7) Create a function named goToSecondClass that accepts
 // a destructured object as a parameter. The parameter
 // extracts the "secondHour" property of the object.
@@ -70,7 +103,9 @@ const myClasses = {
   thirdHour: "Biology"
 };
 ////////// Don't change the above object
-
+function goToSecondClass({secondHour}){
+    return `Time to go to ${secondHour} class!`;
+}
 // 8a) Create a generic object named pie.
 // Give the pie object a property named "slices"
 // that has a value of 8. Give the pie object
@@ -86,3 +121,14 @@ const myClasses = {
 // this new object to return "Delicious!"
 ////////////////
 // Hint: Inheritance is in this week's video.
+const pie = {
+    slices: 8,
+    taste: function (){
+        return "Wow!";
+    }
+};
+const blueBerryPie = object.create(pie);
+blueBerryPie.flavor = "blueberry";
+blueBerryPie.taste = function(){
+    return "Delicious!";
+};
