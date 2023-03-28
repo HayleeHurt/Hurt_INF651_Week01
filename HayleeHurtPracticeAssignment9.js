@@ -59,7 +59,7 @@ const numArray = [2, 5, 7, 8, 14, 19, 22];
 function getEvens(array) {
   const newArray = [];
   for (let i = 0; i < array.length; i++) {
-    if (array[i] % === 2) newArray.push(array[i]);
+    if (array[i] %  2) newArray.push(array[i]);
   }
   return newArray;
 }
@@ -82,7 +82,7 @@ const arrayOfObjs = [
 function getObjOdds(array) {
   const newArray = [];
   for (obj in array) {
-   if (array[obj].number % 2 !=== 0){
+   if (array[obj].number % 2 !== 0) {
      newArray.push(array[obj].number);
    }
   }
