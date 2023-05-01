@@ -87,7 +87,7 @@ function iceCreamFactory(iceCreamFlavor){
         }
     };
 }
-const mySccoop = iceCreamFavtory("Vanilla");
+const mySccoop = iceCreamFactory("Vanilla");
 
 // 5) Using a literal (not a class or function), define an object
 // named "webDev" that has the following key-value pairs:
